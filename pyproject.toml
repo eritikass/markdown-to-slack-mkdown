@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markdown-to-slack-mkdown"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert GitHub markdown to Slack markdown format"
 readme = "README.md"
 authors = [
@@ -17,13 +17,10 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 dependencies = []
 
 [dependency-groups]
@@ -49,7 +46,7 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

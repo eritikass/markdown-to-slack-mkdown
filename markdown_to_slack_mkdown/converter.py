@@ -59,7 +59,7 @@ def slack_convert(markdown: str, options: Optional[SlackConvertOptions] = None) 
     # Normalize newlines
     markdown = markdown.replace("\r\n", "\n")
 
-    # Convert bold **TEXT** -> *TEXT*
+    # Convert bold **TEXT** -> *TEXT* (must be done before list markers)
     bold_regex = re.compile(r"(?s)(\*\*).+?(\*\*)")
 
     def replace_bold(match: re.Match[str]) -> str:
@@ -87,8 +87,9 @@ def slack_convert(markdown: str, options: Optional[SlackConvertOptions] = None) 
 
     markdown = link_regex.sub(replace_link, markdown)
 
-    # Convert list markers * -> •
-    list_regex = re.compile(r"^(\s*)\*", re.MULTILINE)
+    # Convert list markers * -> • (must be done after bold conversion)
+    # Only match * that is followed by whitespace or is at end of line
+    list_regex = re.compile(r"^(\s*)\*(?=\s|$)", re.MULTILINE)
     markdown = list_regex.sub(r"\1•", markdown)
 
     # Convert headlines to bold if option is set
