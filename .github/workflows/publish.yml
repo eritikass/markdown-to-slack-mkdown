@@ -35,8 +35,8 @@ jobs:
         repository-url: https://test.pypi.org/legacy/
         password: ${{ secrets.PYPI_TEST_API_TOKEN }}
     
-    - name: Publish to PyPI (only on release)
-      if: github.event_name == 'release'
+    - name: Publish to PyPI (only on release, not pre-release)
+      if: github.event_name == 'release' && !github.event.release.prerelease
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
