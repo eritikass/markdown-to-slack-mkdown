@@ -9,14 +9,18 @@ Then run this script:
 python test_from_testpypi.py
 """
 
+
 def test_package():
     try:
         from markdown_to_slack_mkdown import slack_convert, SlackConvertOptions
+
         print("✅ Package imported successfully")
     except ImportError as e:
         print(f"❌ Failed to import package: {e}")
         print("\nInstall with:")
-        print("pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ markdown-to-slack-mkdown")
+        print(
+            "pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ markdown-to-slack-mkdown"
+        )
         return False
 
     # Test cases
@@ -38,14 +42,11 @@ def test_package():
             return False
 
     # Test with options
-    options = SlackConvertOptions(
-        repo_name="owner/repo",
-        headlines=True
-    )
-    
+    options = SlackConvertOptions(repo_name="owner/repo", headlines=True)
+
     test_input = "## Header\nFix #123"
     result = slack_convert(test_input, options)
-    
+
     if "*Header*" in result and "owner/repo" in result:
         print(f"✅ Options test passed")
     else:
@@ -55,6 +56,8 @@ def test_package():
     print("\n🎉 All tests passed!")
     return True
 
+
 if __name__ == "__main__":
     import sys
+
     sys.exit(0 if test_package() else 1)
