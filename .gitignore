@@ -144,3 +144,4 @@ cython_debug/
 
 # macOS
 .DS_Store
+markdown_to_slack_mkdown/_version.py

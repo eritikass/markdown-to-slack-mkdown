@@ -5,7 +5,6 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="markdown-to-slack-mkdown",
-    version="0.1.1",
     author="Siim Tiilen",
     author_email="eritikass@gmail.com",
     description="Convert GitHub markdown to Slack markdown format",

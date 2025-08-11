@@ -356,7 +356,6 @@ wheels = [
 
 [[package]]
 name = "markdown-to-slack-mkdown"
-version = "0.1.1"
 source = { editable = "." }
 
 [package.dev-dependencies]

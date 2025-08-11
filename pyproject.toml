@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markdown-to-slack-mkdown"
-version = "0.1.1"
+dynamic = ["version"]
 description = "Convert GitHub markdown to Slack markdown format"
 readme = "README.md"
 authors = [
@@ -63,3 +63,8 @@ exclude_lines = [
     "raise AssertionError",
     "raise NotImplementedError",
 ]
+
+[tool.setuptools_scm]
+write_to = "markdown_to_slack_mkdown/_version.py"
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
